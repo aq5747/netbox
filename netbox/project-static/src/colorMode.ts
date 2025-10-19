@@ -28,7 +28,7 @@ function updateElements(targetMode: ColorMode): void {
   }
 
   for (const elevation of getElements<HTMLObjectElement>('.rack_elevation')) {
-    const svg = elevation.contentDocument?.querySelector('svg') ?? null;
+    const svg = (elevation.contentDocument?.querySelector('svg') || elevation.querySelector('svg')) ?? null;
     if (svg !== null) {
       svg.setAttribute(`data-bs-theme`, targetMode);
     }
@@ -115,6 +115,7 @@ function initColorModeToggle(): void {
  */
 export function initColorMode(): void {
   window.addEventListener('load', defaultColorMode);
+  window.addEventListener('htmx:afterSettle', defaultColorMode);
   for (const func of [initColorModeToggle]) {
     func();
   }
