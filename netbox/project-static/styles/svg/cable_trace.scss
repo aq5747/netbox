@@ -17,18 +17,13 @@
 
   &[data-bs-theme='dark'] {
     // Dark mode values
-    --nbx-trace-bg: rgb(27, 41, 58);
+    --nbx-trace-bg: rgb(9, 27, 41);
     --nbx-trace-color: #{$white};
     --nbx-trace-node-bg: #{$gray-900};
     --nbx-trace-termination-bg: #{$gray-800};
     --nbx-trace-cable-shadow: #{$gray-200};
     --nbx-trace-attachment: #{$gray-600};
   }
-}
-
-* {
-  font-family: $font-family-sans-serif;
-  font-size: $font-size-sm;
 }
 
 text {
@@ -47,6 +42,8 @@ text {
 
 svg {
   background-color: var(--nbx-trace-bg);
+  font-family: $font-family-sans-serif;
+  font-size: $font-size-sm;
 
   /* Boxes */
   rect {

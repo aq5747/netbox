@@ -18,7 +18,13 @@
         <div class="col col-md-5">
           {% if path %}
             <div class="text-center my-3">
-              <object data="{{ svg_url }}" class="rack_elevation"></object>
+              <div hx-get="{{ svg_url }}" hx-trigger="intersect" hx-swap="outerHTML">
+                <div class="d-flex justify-content-center align-items-center rack-loading-container">
+                  <div class="spinner-border" role="status">
+                    <span class="visually-hidden">{% trans "Loading..." %}</span>
+                  </div>
+                </div>
+              </div>
               <div>
                 <a class="btn btn-outline-primary my-3" href="{{ svg_url }}">
                     <i class="mdi mdi-file-download"></i> {% trans "Download SVG" %}
